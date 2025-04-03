@@ -9,7 +9,7 @@ client = openai.OpenAI(api_key="API-KEY")
 tone_df = pd.read_csv("Tone_Comparisons.csv")
 
 # Optionally filter or shorten the dataset for token length
-csv_summary = tone_df.head(20).to_csv(index=False)
+csv_summary = tone_df.head(181).to_csv(index=False)
 
 # System prompt with context description
 system_message = f"""
@@ -27,7 +27,7 @@ The key columns are:
 
 Here is the data you have access to:
 
-{tone_df}
+{csv_summary}
 
 Use this data to answer user questions thoughtfully.
 """
@@ -52,7 +52,7 @@ if prompt := st.chat_input("Ask about news tone..."):
         st.markdown(prompt)
 
     response = client.chat.completions.create(
-        model="gpt-4",
+        model="ChatGPT-4o",
         messages=st.session_state.messages,
     )
 
