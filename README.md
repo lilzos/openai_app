@@ -1,1 +1,1 @@
-# openai_app
+# openai_streamlit
