@@ -52,7 +52,7 @@ if prompt := st.chat_input("Ask about news tone..."):
         st.markdown(prompt)
 
     response = client.chat.completions.create(
-        model="ChatGPT-4o",
+        model="gpt-4o",
         messages=st.session_state.messages,
     )
 
